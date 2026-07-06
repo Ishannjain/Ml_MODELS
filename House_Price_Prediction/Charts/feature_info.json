@@ -1,0 +1,17 @@
+{
+  "area": {
+    "type": "numeric"
+  },
+  "bedrooms": {
+    "type": "numeric"
+  },
+  "bathrooms": {
+    "type": "numeric"
+  },
+  "stories": {
+    "type": "numeric"
+  },
+  "parking": {
+    "type": "numeric"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "best_model": "Linear Regression",
+  "selected_features": [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "stories",
+    "parking"
+  ],
+  "train_rows": 436,
+  "test_rows": 109
+}
