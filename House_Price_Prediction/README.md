@@ -34,5 +34,8 @@ streamlit run app.py
 
 ## Notes
 
-- Ensure `best_pipeline.joblib` exists in the project root before running `app.py`.
+- Ensure `best_pipeline.joblib` exists in the project root before runninge `app.py`.
 - The app loads feature metadata from `Charts/feature_info.json`.
+
+# Live Demo
+https://housepriceprediction698.streamlit.app/
