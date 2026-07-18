@@ -1,0 +1,90 @@
+# Phase-3
+1.Why do we merge the two TMDB datasets?
+    ans:"We merge the two TMDB datasets to combine movie information and credit information into one dataset. This allows the recommendation system to use genres, overview, keywords, cast, and director together for better recommendations."
+2.Why is the title column used as the merge key?
+    ans:The title column is used because it is the common column available in both datasets that represents the same movie. It acts as the joining key to merge movie information with cast and crew details
+3.Why are only a subset of columns selected?
+    ans:Only relevant columns are selected because they directly describe the movie's content. Removing unnecessary columns makes the model faster, simpler, and reduces irrelevant information.
+4.What is the impact of missing values in a recommendation system?
+    ans:Missing values reduce the quality of recommendations because important information is unavailable. They can also cause errors during preprocessing and similarity calculations, so they should be handled before training.
+5.Why remove duplicate rows before feature engineering?
+    ans:Duplicate rows are removed to avoid recommending the same movie multiple times and to ensure that similarity calculations are accurate."
+6.Why reset the index after cleaning?
+    ans:"Resetting the index creates continuous row numbers after removing missing or duplicate records. This is important because recommendation systems use row indices to retrieve similar movies."
+7.Why save the cleaned dataset instead of repeating the cleaning steps every time?
+    ans:Saving the cleaned dataset improves efficiency by avoiding repeated preprocessing. It reduces execution time, ensures consistency, and makes the machine learning pipeline easier to maintain.
+
+#Phase-4
+1. What is Feature Engineering?
+
+Feature engineering is the process of transforming raw data into meaningful features that improve machine learning model performance.
+
+2. Why do we create the tags column?
+
+The tags column combines all important movie information (overview, genres, keywords, cast, and director) into a single text representation, making it easier to compare movies.
+
+3. Why use only the top 3 cast members?
+
+The top-billed actors usually have the greatest influence on a movie's identity. Including only the first three reduces noise and keeps the feature vector concise.
+
+4. Why extract only the director?
+
+The director significantly influences a movie's style and storytelling, making it an important feature for similarity calculations.
+
+5. Why remove spaces from names?
+
+Removing spaces ensures multi-word names like Sam Worthington are treated as one token (SamWorthington) during vectorization.
+
+6. Why convert the tags to lowercase?
+
+Lowercasing ensures that words like Action and action are treated as the same feature, reducing duplicate tokens.
+
+7. Why save the feature-engineered dataset?
+
+Saving the processed dataset avoids repeating feature engineering, speeds up development, and makes the pipeline reproducible.
+
+#Phase-7 
+1. What is CountVectorizer?
+
+CountVectorizer converts text into a numerical matrix by counting how many times each word appears in a document. Machine learning algorithms require numerical input, so this is a common text vectorization technique.
+
+2. Why do we use CountVectorizer?
+
+Machine learning models cannot understand raw text. CountVectorizer transforms text into vectors that can be used to compute similarities between movies.
+
+3. What is max_features=5000?
+
+It limits the vocabulary to the 5000 most frequent words, reducing memory usage and removing less informative words.
+
+4. Why remove stop words?
+
+Common words such as the, is, and, and of appear in almost every document but provide little meaning for distinguishing movies. Removing them improves recommendation quality.
+
+5. Why convert the sparse matrix to an array?
+
+fit_transform() returns a sparse matrix to save memory. We convert it to a NumPy array using .toarray() because it simplifies later computations with cosine similarity in this project.
+
+6. Why save the vectorizer?
+
+Saving the fitted CountVectorizer ensures that the same vocabulary is used during deployment. This guarantees consistent preprocessing between training and inference.
+
+#Phase-8
+1. What is Cosine Similarity?
+
+Cosine Similarity measures the similarity between two vectors by calculating the cosine of the angle between them. Its value ranges from -1 to 1, where 1 indicates identical vectors and 0 indicates no similarity.
+
+2. Why do we use Cosine Similarity?
+
+Cosine Similarity focuses on the direction of vectors rather than their magnitude, making it ideal for comparing text documents represented as vectors.
+
+3. Why do we ignore the first movie in recommendations?
+
+The movie itself has a similarity score of 1.0 with itself, so we skip it and return the next most similar movies.
+
+4. Why are the movies sorted?
+
+Sorting arranges movies from the highest similarity score to the lowest, ensuring that the most relevant recommendations appear first.
+
+5. Why save movies.pkl and similarity.pkl?
+
+Saving these files avoids recomputing the similarity matrix every time the application starts, making the Streamlit app much faster.

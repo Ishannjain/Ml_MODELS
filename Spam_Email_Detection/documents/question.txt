@@ -1,0 +1,95 @@
+SPAM DETECTION ML PROJECT - Q&A NOTES
+========================================
+
+1. Why is EDA important before training an ML model?
+EDA helps understand data distribution, spot errors, missing values, and patterns before modeling, which guides preprocessing and feature engineering decisions.
+
+2. Why did you remove duplicate rows?
+Duplicates can bias the model by over-representing certain samples, leading to overfitting and inflated accuracy.
+
+3. Why did you rename the columns?
+To make column names clearer, consistent, and easier to reference in code (e.g., "v1"/"v2" to "label"/"message").
+
+4. Why is the dataset imbalanced?
+Because spam messages are naturally much fewer than legitimate (ham) messages in real-world data.
+
+5. Why create Message_Length and Word_Count features?
+These numeric features capture structural differences between spam and ham messages, useful for analysis and sometimes as extra model features.
+
+6. What insights did you gain from the box plot?
+Spam messages generally show longer length and higher word count compared to ham messages, with more variability.
+
+7. How do spam and ham messages differ in terms of length?
+Spam messages tend to be longer on average, often containing promotional text, links, or repeated keywords.
+
+8. Why do we convert text to lowercase?
+To ensure uniformity so words like "Free" and "free" are treated as the same token.
+
+9. Why remove punctuation?
+Punctuation adds noise and doesn't usually carry predictive meaning for text classification.
+
+10. What are stopwords?
+Common words (e.g., "the", "is", "and") that carry little semantic value and are often removed to reduce noise.
+
+11. Why use stemming?
+Stemming reduces words to their root form (e.g., "running" -> "run"), reducing vocabulary size and grouping similar words.
+
+12. Difference between stemming and lemmatization?
+Stemming crudely chops word endings using rules (may produce non-words), while lemmatization uses vocabulary/grammar rules to return valid dictionary root words.
+
+13. What is TF-IDF?
+Term Frequency-Inverse Document Frequency; a numerical measure showing how important a word is to a document relative to a corpus.
+
+14. Why is TF-IDF better than Bag of Words in many cases?
+TF-IDF down-weights common words appearing in many documents and up-weights rare, informative words, unlike simple word counts in BoW.
+
+15. Why do we encode labels?
+ML models require numeric input, so categorical labels (spam/ham) are converted to numbers (1/0).
+
+16. What is a sparse matrix?
+A matrix mostly filled with zeros, stored efficiently to save memory; common in text vectorization outputs like TF-IDF.
+
+17. Why save the TF-IDF vectorizer?
+To apply the exact same vocabulary and transformation to new/unseen data during prediction, ensuring consistency.
+
+18. What is a hyperparameter?
+A configuration value set before training (e.g., alpha, learning rate) that controls model behavior, not learned from data.
+
+19. Difference between a parameter and a hyperparameter?
+Parameters are learned by the model during training (e.g., weights); hyperparameters are set manually before training.
+
+20. Why do we use GridSearchCV?
+To systematically search a defined set of hyperparameter combinations and find the best-performing one using cross-validation.
+
+21. What is cross-validation?
+A technique that splits data into multiple folds to train/test the model several times, giving a more reliable performance estimate.
+
+22. What does cv=5 mean?
+The data is split into 5 folds; the model trains on 4 folds and validates on 1, repeating 5 times.
+
+23. Why optimize the alpha parameter in Multinomial Naive Bayes?
+Alpha controls Laplace smoothing; tuning it helps handle zero-frequency issues and improves generalization.
+
+24. Trade-off between GridSearchCV and RandomizedSearchCV?
+GridSearchCV is exhaustive but slow (tests all combinations); RandomizedSearchCV samples combinations randomly, faster but may miss the optimal one.
+
+25. Why is Naive Bayes a strong baseline for spam detection?
+It works well with high-dimensional sparse text data, is fast, simple, and performs surprisingly well despite its "naive" independence assumption.
+
+26. Why did we use TF-IDF instead of raw text?
+ML models need numerical input; TF-IDF converts text into meaningful numeric vectors reflecting word importance.
+
+27. Why do we split data into training and testing sets?
+To evaluate model performance on unseen data and check for generalization rather than memorization.
+
+28. Why is precision especially important in spam detection?
+False positives (ham marked as spam) are costly since important messages could be missed; high precision minimizes this risk.
+
+29. What is a confusion matrix, and how do you interpret it?
+A table showing True Positives, True Negatives, False Positives, and False Negatives, helping assess model performance beyond accuracy.
+
+30. When would you choose SVM over Random Forest?
+SVM often performs better on high-dimensional sparse text data (like TF-IDF vectors), while Random Forest may be preferred for structured/tabular data with complex feature interactions.
+
+31. Why save the model as a .pkl file instead of retraining every time?
+Saving avoids costly retraining; the trained model can be quickly loaded and reused for predictions in production.
