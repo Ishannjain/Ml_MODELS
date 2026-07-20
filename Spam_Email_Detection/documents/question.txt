@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 SPAM DETECTION ML PROJECT - Q&A NOTES
 ========================================
 
@@ -93,3 +94,36 @@ SVM often performs better on high-dimensional sparse text data (like TF-IDF vect
 
 31. Why save the model as a .pkl file instead of retraining every time?
 Saving avoids costly retraining; the trained model can be quickly loaded and reused for predictions in production.
+=======
+Why is EDA important before training an ML model?
+Why did you remove duplicate rows?
+Why did you rename the columns?
+Why is the dataset imbalanced?
+Why create Message_Length and Word_Count features?
+What insights did you gain from the box plot?
+How do spam and ham messages differ in terms of length?
+Why do we convert text to lowercase?
+Why remove punctuation?
+What are stopwords?
+Why use stemming?
+Difference between stemming and lemmatization?
+What is TF-IDF?
+Why is TF-IDF better than Bag of Words in many cases?
+Why do we encode labels?
+What is a sparse matrix?
+Why save the TF-IDF vectorizer?
+hat is a hyperparameter?
+What is the difference between a parameter and a hyperparameter?
+Why do we use GridSearchCV?
+What is cross-validation?
+What does cv=5 mean?
+Why optimize the alpha parameter in Multinomial Naive Bayes?
+What is the trade-off between GridSearchCV and RandomizedSearchCV?
+Why is Naive Bayes a strong baseline for spam detection?
+Why did we use TF-IDF instead of raw text?
+Why do we split the data into training and testing sets?
+Why is precision especially important in spam detection?
+What is a confusion matrix, and how do you interpret it?
+When would you choose SVM over Random Forest?
+Why save the model as a .pkl file instead of retraining every time?
+>>>>>>> 77c9b893d7f0cae336c866ea45743096b048ab55
