@@ -1,0 +1,30 @@
+{
+    "overall_score": 85,
+    "questions": [
+        {
+            "question": "Tell me about yourself.",
+            "answer": "I am a software engineer with 5 years of experience in web development.",
+            "score": 8
+        },
+        {
+            "question": "Explain one important project you have worked on.",
+            "answer": "I led a team to develop an e-commerce platform that increased sales by 30%.",
+            "score": 9
+        },
+        {
+            "question": "What are your strongest technical skills?",
+            "answer": "My strongest skills are in Python, JavaScript, and cloud technologies.",
+            "score": 8
+        },
+        {
+            "question": "How would you debug a production issue?",
+            "answer": "I would start by checking the logs, reproducing the issue, and then isolating the problem.",
+            "score": 7
+        },
+        {
+            "question": "Explain a difficult technical problem you solved.",
+            "answer": "I optimized a slow database query that improved the application's performance significantly.",
+            "score": 9
+        }
+    ]
+}
